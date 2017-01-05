@@ -6,7 +6,7 @@ As you've seen, the data from the database includes songs. Now it's time to add 
 
 Rememeber to follow the branching instructions to get started. 
 
-1. Update your album show page to include UI elements for users to create,  edit, and delete song:
+1. Update your album show page to include UI elements for users to create,  edit, and delete songs:
 
   ![full-view](https://cloud.githubusercontent.com/assets/3010270/14510977/4b621d0e-0189-11e6-82b0-965e6d1f0484.png)
 
