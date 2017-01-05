@@ -98,11 +98,11 @@ To get started on a new tunely-angular sprint, we'll have you check out the solu
 
 ## More Challenges  
 
-1. If you didn't before, add a `textarea` input for users to input genres as a comma-separated list.  Process this data into the format the server expects.
+1. If you didn't before, add a `textarea` input for users to input genres as a comma-separated list.  Process this data into the format the server expects. (You will need to examine back end code to see what that format is!)
 
 1. Add an input box that the user can type in to filter the list of albums on the page. (Hint: look up angular's built-in filtering!)  This works great when there are few enough albums that we can show them all on the page at once.
 
-1. As an alternate way for users to narrow down albums, add a search form that the user can use to search the database for albums.  This will require modifying your server code. Try to do it without adding a route.
+1. As an alternate way for users to narrow down albums, add a search form that the user can use to search the database for albums.  This will require modifying your server code. Try to do it without adding a route.  (Hint: no new route means you'll have to take advantage of the request body, query parameters, or url paramters for one of your existing routes.)
 
 1. Change the form by replacing the textarea for genre with a field that has a button to add a new field for each genre. See the mockup:
 
