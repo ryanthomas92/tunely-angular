@@ -33,8 +33,10 @@
         <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
         </br><label>Search: <input ng-model="searchText"></label>
         <div ng-repeat="album in albumsIndexCtrl.albums | orderBy:'name' | filter:searchText">
-          <h1>{{album.name}}</h1>
-          <h2>By: {{album.artistName}}</h2>
+          <ul>
+            <li>{{album.name}}</li>
+            <li>By: {{album.artistName}}</li>
+          </ul>
         </div>
     </div>
   </body>
