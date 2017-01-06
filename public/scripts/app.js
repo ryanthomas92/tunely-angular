@@ -45,7 +45,8 @@ function AlbumsIndexController ($http) {
       url: '/api/albums/' + album._id,
       data: {
         name: album.name,
-        artistName: album.artistName
+        artistName: album.artistName,
+        // releaseDate: album.releaseDate
       },
     }).then(function successCallback(editedAlbum) {
       var index = vm.albums.indexOf(editedAlbum);
