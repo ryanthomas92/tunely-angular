@@ -34,8 +34,15 @@
     <div class="container" ng-controller="AlbumsIndexController as albumsIndexCtrl">
       <input type="text" class="form-control" placeholder="New album name" ng-model="albumsIndexCtrl.newAlbum.name">
       <input type="text" class="form-control" placeholder="New album artist" ng-model="albumsIndexCtrl.newAlbum.artistName">
-      <p><b>albumsIndexCtrl.newAlbum:</b> {{albumsIndexCtrl.newAlbum}}</p>
-      <input type="text" class="form-control" ng-model="searchText" placeholder="Search Albums">
+      <p><b>New Album:</b> {{albumsIndexCtrl.newAlbum}}</p>
+      <input type="text" class="form-control" ng-model="searchText" placeholder="Search Albums"></br>
+      <form ng-submit="albumsIndexCtrl.createAlbum()">
+        <input type="text" class="form-control" placeholder="album name" ng-model="albumsIndexCtrl.newAlbum.name"></input>
+        <input type="text" class="form-control" placeholder="artist name" ng-model="albumsIndexCtrl.newAlbum.artistName"></input>
+
+        <input type="submit">
+      </form>
+
       <div ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
 
         <div class="col-md-10 col-md-offset-1">
@@ -61,6 +68,7 @@
                     </li>
                   </ul>
                 </div>
+
               </div>
             </div>
           </div>

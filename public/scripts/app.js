@@ -16,24 +16,41 @@ function AlbumsIndexController ( $http ) {
   var vm = this;
   vm.results = null;
 
+  vm.newAlbum = {};
+
   $http({
     method: 'GET',
     url: "/api/albums"
-  }).then(successCallback, errorCallback);
+  }).then(getSuccess, errorCallback);
 
-  function successCallback(response) {
+  vm.createAlbum = function() {
+    $http({
+      method: 'POST',
+      url: "/api/albums",
+      data: {
+        name: vm.newAlbum.name,
+        artistName: vm.newAlbum.artistName
+      }
+    }).then(function postSuccess(response) {
+        vm.albums.push(response.data);
+      }), function postCallbackError(response) {
+        console.log("There was an error ", response);
+      };
+    };
+  
+
+  function getSuccess(response) {
     vm.albums = response.data;
     console.log("Response for all albums: ", response);
   }
+
   function errorCallback(error) {
     console.log("There is an error: ", error);
   }
 
-  vm.newAlbum = {};
 
-  vm.newAlbum = {
-      name: 'Viva Hate',
-      artistName: 'Morrissey'
-  };
-
+  // vm.newAlbum = {
+  //     name: 'Viva Hate',
+  //     artistName: 'Morrissey'
+  // };
 }
