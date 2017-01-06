@@ -86,7 +86,6 @@
 
       <input type="text" class="form-control" ng-model="searchText" placeholder="Search Albums">
       <div ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
-        <button class='btn btn-danger' ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
         <div class="col-md-10 col-md-offset-1">
           <div class="panel panel-default">
             <div class="panel-body">
@@ -109,6 +108,11 @@
                       <span>{{album.artistName}}</span>
                     </li>
                   </ul>
+                  <button class='btn btn-danger' ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
+                  <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Album</button>
+                  <button class='btn btn-info' ng-show="editing" ng-click="albumsIndexCtrl.editAlbum(album); editing = false">Save Changes</button>
+                  <input ng-show="editing" ng-model="album.name" type="text" class="form-control input-md">
+                  <input ng-show="editing" ng-model="album.artistName" type="text" class="form-control input-md">
                 </div>
               </div>
             </div>

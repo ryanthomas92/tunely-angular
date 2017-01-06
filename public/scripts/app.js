@@ -39,6 +39,22 @@ function AlbumsIndexController ($http) {
     });
   }
 
+  vm.editAlbum = function(album) {
+    $http({
+      method: 'PUT',
+      url: '/api/albums/' + album._id,
+      data: {
+        name: album.name,
+        artistName: album.artistName
+      },
+    }).then(function successCallback(editedAlbum) {
+      var index = vm.albums.indexOf(editedAlbum);
+      vm.albums.splice(index, 1, editedAlbum);
+    }, function errorCallback(error) {
+      console.log("There's an error " + error);
+    });
+  }
+
   vm.deleteAlbum = function(album) {
     $http({
       method: 'DELETE',
@@ -46,8 +62,8 @@ function AlbumsIndexController ($http) {
     }).then(function successCallback(deletedAlbum) {
       var index = vm.albums.indexOf(deletedAlbum);
       vm.albums.splice(index, 1);
-    }, function errorCallback(response) {
-      console.log("There's an error ", response);
+    }, function errorCallback(error) {
+      console.log("There's an error ", error);
     });
   }
 }
