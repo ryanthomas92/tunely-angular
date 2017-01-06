@@ -86,7 +86,7 @@
 
       <input type="text" class="form-control" ng-model="searchText" placeholder="Search Albums">
       <div ng-repeat="album in albumsIndexCtrl.albums | orderBy: 'name' | filter: searchText" class="row">
-
+        <button class='btn btn-danger' ng-click="albumsIndexCtrl.deleteAlbum(album)">Delete Album</button>
         <div class="col-md-10 col-md-offset-1">
           <div class="panel panel-default">
             <div class="panel-body">
