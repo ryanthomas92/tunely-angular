@@ -6,6 +6,7 @@
 
 angular
   .module('tunely', ['ng-Route'])
+  .config(config)
   .controller('AlbumsIndexController', AlbumsIndexController);
 
 AlbumsIndexController.$inject = ['$http'];
